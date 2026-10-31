@@ -10,33 +10,101 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApplicationsRouteImport } from './routes/applications'
+import { Route as FabricationRouteImport } from './routes/fabrication'
+import { Route as MaterialsRouteImport } from './routes/materials'
+import { Route as ProductsRouteImport } from './routes/products'
+import { Route as MaterialsCollectionRouteImport } from './routes/materials.$collection'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApplicationsRoute = ApplicationsRouteImport.update({
+  id: '/applications',
+  path: '/applications',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FabricationRoute = FabricationRouteImport.update({
+  id: '/fabrication',
+  path: '/fabrication',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialsRoute = MaterialsRouteImport.update({
+  id: '/materials',
+  path: '/materials',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProductsRoute = ProductsRouteImport.update({
+  id: '/products',
+  path: '/products',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MaterialsCollectionRoute = MaterialsCollectionRouteImport.update({
+  id: '/$collection',
+  path: '/$collection',
+  getParentRoute: () => MaterialsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/fabrication': typeof FabricationRoute
+  '/materials': typeof MaterialsRouteWithChildren
+  '/products': typeof ProductsRoute
+  '/materials/$collection': typeof MaterialsCollectionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/fabrication': typeof FabricationRoute
+  '/materials': typeof MaterialsRouteWithChildren
+  '/products': typeof ProductsRoute
+  '/materials/$collection': typeof MaterialsCollectionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/applications': typeof ApplicationsRoute
+  '/fabrication': typeof FabricationRoute
+  '/materials': typeof MaterialsRouteWithChildren
+  '/products': typeof ProductsRoute
+  '/materials/$collection': typeof MaterialsCollectionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/applications'
+    | '/fabrication'
+    | '/materials'
+    | '/products'
+    | '/materials/$collection'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/applications'
+    | '/fabrication'
+    | '/materials'
+    | '/products'
+    | '/materials/$collection'
+  id:
+    | '__root__'
+    | '/'
+    | '/applications'
+    | '/fabrication'
+    | '/materials'
+    | '/products'
+    | '/materials/$collection'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ApplicationsRoute: typeof ApplicationsRoute
+  FabricationRoute: typeof FabricationRoute
+  MaterialsRoute: typeof MaterialsRouteWithChildren
+  ProductsRoute: typeof ProductsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +116,62 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/applications': {
+      id: '/applications'
+      path: '/applications'
+      fullPath: '/applications'
+      preLoaderRoute: typeof ApplicationsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/fabrication': {
+      id: '/fabrication'
+      path: '/fabrication'
+      fullPath: '/fabrication'
+      preLoaderRoute: typeof FabricationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materials': {
+      id: '/materials'
+      path: '/materials'
+      fullPath: '/materials'
+      preLoaderRoute: typeof MaterialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/products': {
+      id: '/products'
+      path: '/products'
+      fullPath: '/products'
+      preLoaderRoute: typeof ProductsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/materials/$collection': {
+      id: '/materials/$collection'
+      path: '/$collection'
+      fullPath: '/materials/$collection'
+      preLoaderRoute: typeof MaterialsCollectionRouteImport
+      parentRoute: typeof MaterialsRoute
+    }
   }
 }
 
+interface MaterialsRouteChildren {
+  MaterialsCollectionRoute: typeof MaterialsCollectionRoute
+}
+
+const MaterialsRouteChildren: MaterialsRouteChildren = {
+  MaterialsCollectionRoute: MaterialsCollectionRoute,
+}
+
+const MaterialsRouteWithChildren = MaterialsRoute._addFileChildren(
+  MaterialsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ApplicationsRoute: ApplicationsRoute,
+  FabricationRoute: FabricationRoute,
+  MaterialsRoute: MaterialsRouteWithChildren,
+  ProductsRoute: ProductsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
