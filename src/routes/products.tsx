@@ -33,9 +33,7 @@ function ProductsPage() {
             key={p.id}
             className="grid items-center gap-8 border-t border-line py-12 md:grid-cols-[1fr_1.2fr] md:gap-16 md:py-16"
           >
-            <div
-              className={`img-zoom aspect-[16/10] ${i % 2 === 1 ? "md:order-2" : ""}`}
-            >
+            <div className={`img-zoom aspect-[16/10] ${i % 2 === 1 ? "md:order-2" : ""}`}>
               <img
                 src={p.image}
                 alt={p.name}

@@ -22,7 +22,9 @@ export const Route = createFileRoute("/materials/$collection")({
       },
       {
         property: "og:title",
-        content: loaderData ? `${loaderData.collection.name} Collection — acespaces` : "Collection — acespaces",
+        content: loaderData
+          ? `${loaderData.collection.name} Collection — acespaces`
+          : "Collection — acespaces",
       },
       { property: "og:type", content: "website" },
     ],
@@ -98,7 +100,10 @@ function CollectionPage() {
         >
           <span className="text-[12px] text-ink-soft">Next collection</span>
           <span className="display-md text-3xl transition-colors group-hover:text-signal md:text-4xl">
-            {next.name} <span aria-hidden className="text-signal">→</span>
+            {next.name}{" "}
+            <span aria-hidden className="text-signal">
+              →
+            </span>
           </span>
         </Link>
       </section>

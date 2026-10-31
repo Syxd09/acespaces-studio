@@ -81,9 +81,7 @@ export function SiteFooter() {
             <p className="text-xl text-ink">
               <Wordmark />
             </p>
-            <p>
-              Corian® solid surfaces — materials, fabrication &amp; installed projects.
-            </p>
+            <p>Corian® solid surfaces — materials, fabrication &amp; installed projects.</p>
           </div>
           <div className="space-y-1 md:text-right">
             <p>studio@acespaces.in</p>

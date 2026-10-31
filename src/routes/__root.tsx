@@ -80,10 +80,16 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "acespaces — Corian® Solid Surfaces" },
-      { name: "description", content: "Premium Corian® solid surfaces — materials, colours, fabrication and projects." },
+      {
+        name: "description",
+        content: "Premium Corian® solid surfaces — materials, colours, fabrication and projects.",
+      },
       { name: "author", content: "acespaces" },
       { property: "og:title", content: "acespaces — Corian® Solid Surfaces" },
-      { property: "og:description", content: "Premium Corian® solid surfaces — materials, colours, fabrication and projects." },
+      {
+        property: "og:description",
+        content: "Premium Corian® solid surfaces — materials, colours, fabrication and projects.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

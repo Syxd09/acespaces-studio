@@ -139,8 +139,8 @@ function Home() {
               endlessly shaped.
             </h2>
             <p className="mt-5 max-w-md text-[15px] leading-relaxed text-ink-soft">
-              Seamless counters, thermoformed curves, integral basins, facade panels — cut,
-              formed and joined in our own workshop.
+              Seamless counters, thermoformed curves, integral basins, facade panels — cut, formed
+              and joined in our own workshop.
             </p>
             <ul className="mt-9 grid grid-cols-2 gap-x-8 gap-y-3">
               {applications.slice(0, 6).map((a) => (

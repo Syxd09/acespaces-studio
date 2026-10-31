@@ -1,4 +1,4 @@
-import { Link, createFileRoute } from "@tanstack/react-router";
+import { Link, Outlet, createFileRoute, useChildMatches } from "@tanstack/react-router";
 import { collections } from "@/data/content";
 
 export const Route = createFileRoute("/materials")({
@@ -13,7 +13,8 @@ export const Route = createFileRoute("/materials")({
       { property: "og:title", content: "Materials & Colours — acespaces" },
       {
         property: "og:description",
-        content: "The acespaces Corian® solid surface colour library — six collections, 140+ colours.",
+        content:
+          "The acespaces Corian® solid surface colour library — six collections, 140+ colours.",
       },
       { property: "og:type", content: "website" },
     ],
@@ -22,6 +23,12 @@ export const Route = createFileRoute("/materials")({
 });
 
 function MaterialsPage() {
+  const childMatches = useChildMatches();
+
+  if (childMatches.length > 0) {
+    return <Outlet />;
+  }
+
   return (
     <>
       <section className="mx-auto max-w-[1400px] px-5 pb-12 pt-32 md:px-10 md:pt-44">
@@ -30,8 +37,8 @@ function MaterialsPage() {
           Colour, engineered to disappear.
         </h1>
         <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-ink-soft">
-          Six collections, one continuous material. Every tone is homogeneous through the full
-          sheet thickness — what you cut is what you keep.
+          Six collections, one continuous material. Every tone is homogeneous through the full sheet
+          thickness — what you cut is what you keep.
         </p>
       </section>
 

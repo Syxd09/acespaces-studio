@@ -94,7 +94,9 @@ export function SiteHeader() {
                         aria-hidden
                       />
                       <span className="min-w-0">
-                        <span className="block text-[13px] font-medium leading-tight">{c.name}</span>
+                        <span className="block text-[13px] font-medium leading-tight">
+                          {c.name}
+                        </span>
                         <span className="block truncate text-[11px] text-ink-soft">{c.note}</span>
                       </span>
                     </Link>
