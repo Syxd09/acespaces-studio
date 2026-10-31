@@ -17,6 +17,9 @@ import journal1 from "@/assets/journal-1.jpg";
 import journal2 from "@/assets/journal-2.jpg";
 import journal3 from "@/assets/journal-3.jpg";
 import aboutStudio from "@/assets/about-studio.jpg";
+import heroMain from "@/assets/hero-main.jpg";
+import fabCnc from "@/assets/fab-cnc.jpg";
+import fabThermo from "@/assets/fab-thermo.jpg";
 
 export const images = {
   texGlacier,
@@ -38,6 +41,9 @@ export const images = {
   journal2,
   journal3,
   aboutStudio,
+  heroMain,
+  fabCnc,
+  fabThermo,
 };
 
 /* ————— Materials & Colours ————— */
