@@ -7,7 +7,7 @@ export const Route = createFileRoute("/journal/$slug")({
     if (!post) throw notFound();
     return { post };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       {
         title: loaderData
@@ -25,7 +25,9 @@ export const Route = createFileRoute("/journal/$slug")({
         content: loaderData ? `${loaderData.post.title} | acespaces` : "Journal Essay | acespaces",
       },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: `/journal/${params.slug}` },
     ],
+    links: [{ rel: "canonical", href: `/journal/${params.slug}` }],
   }),
   component: JournalArticlePage,
 });

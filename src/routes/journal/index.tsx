@@ -18,7 +18,9 @@ export const Route = createFileRoute("/journal/")({
           "Notes on making, material science, monolithic joinery, and fabrication philosophy from our Bengaluru atelier.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/journal" },
     ],
+    links: [{ rel: "canonical", href: "/journal" }],
   }),
   component: JournalPage,
 });

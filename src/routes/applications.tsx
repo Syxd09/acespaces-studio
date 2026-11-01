@@ -12,7 +12,9 @@ export const Route = createFileRoute("/applications")({
       },
       { property: "og:title", content: "Applications — acespaces" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/applications" },
     ],
+    links: [{ rel: "canonical", href: "/applications" }],
   }),
   component: ApplicationsPage,
 });

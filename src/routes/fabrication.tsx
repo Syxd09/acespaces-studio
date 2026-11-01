@@ -17,7 +17,9 @@ export const Route = createFileRoute("/fabrication")({
           "Inside the acespaces Bengaluru workshop — 5-axis CNC routing, 160°C thermoforming, invisible chemical joining, and hand-honed finishes.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/fabrication" },
     ],
+    links: [{ rel: "canonical", href: "/fabrication" }],
   }),
   component: FabricationPage,
 });

@@ -18,7 +18,9 @@ export const Route = createFileRoute("/projects/")({
           "Explore completed architectural projects crafted with Corian® solid surfaces across Bengaluru, Goa, Mumbai, Hyderabad, and Delhi.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/projects" },
     ],
+    links: [{ rel: "canonical", href: "/projects" }],
   }),
   component: ProjectsPage,
 });

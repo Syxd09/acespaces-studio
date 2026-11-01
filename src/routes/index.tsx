@@ -16,7 +16,9 @@ export const Route = createFileRoute("/")({
         content: "Premium Corian® solid surfaces — materials, colours, fabrication and projects.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
     ],
+    links: [{ rel: "canonical", href: "/" }],
   }),
   component: Home,
 });

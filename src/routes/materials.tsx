@@ -17,7 +17,9 @@ export const Route = createFileRoute("/materials")({
           "The acespaces Corian® solid surface colour library — six collections, 140+ colours.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/materials" },
     ],
+    links: [{ rel: "canonical", href: "/materials" }],
   }),
   component: MaterialsPage,
 });
