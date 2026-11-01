@@ -34,8 +34,8 @@ function JournalArticlePage() {
   const { post } = Route.useLoaderData();
 
   const currentIndex = posts.findIndex((p) => p.slug === post.slug);
-  const nextPost = posts[(currentIndex + 1) % posts.length];
-  const prevPost = posts[(currentIndex - 1 + posts.length) % posts.length];
+  const nextPost = posts[(currentIndex + 1) % posts.length]!;
+  const prevPost = posts[(currentIndex - 1 + posts.length) % posts.length]!;
 
   return (
     <>

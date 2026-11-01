@@ -36,7 +36,7 @@ function CollectionPage() {
   const { collection } = Route.useLoaderData();
 
   const index = collections.findIndex((c) => c.id === collection.id);
-  const next = collections[(index + 1) % collections.length];
+  const next = collections[(index + 1) % collections.length]!;
 
   return (
     <>

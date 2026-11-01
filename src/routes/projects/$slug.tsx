@@ -34,8 +34,8 @@ function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
 
   const currentIndex = projects.findIndex((p) => p.slug === project.slug);
-  const nextProject = projects[(currentIndex + 1) % projects.length];
-  const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const nextProject = projects[(currentIndex + 1) % projects.length]!;
+  const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length]!;
 
   return (
     <>

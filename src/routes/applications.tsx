@@ -18,7 +18,8 @@ export const Route = createFileRoute("/applications")({
 });
 
 function ApplicationsPage() {
-  const [first, ...rest] = applications;
+  const first = applications[0]!;
+  const rest = applications.slice(1);
 
   return (
     <>
