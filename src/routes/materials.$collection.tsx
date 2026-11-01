@@ -7,7 +7,7 @@ export const Route = createFileRoute("/materials/$collection")({
     if (!collection) throw notFound();
     return { collection };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       {
         title: loaderData
@@ -27,7 +27,9 @@ export const Route = createFileRoute("/materials/$collection")({
           : "Collection — acespaces",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: `/materials/${params.collection}` },
     ],
+    links: [{ rel: "canonical", href: `/materials/${params.collection}` }],
   }),
   component: CollectionPage,
 });
@@ -36,7 +38,7 @@ function CollectionPage() {
   const { collection } = Route.useLoaderData();
 
   const index = collections.findIndex((c) => c.id === collection.id);
-  const next = collections[(index + 1) % collections.length];
+  const next = collections[(index + 1) % collections.length]!;
 
   return (
     <>

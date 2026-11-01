@@ -17,7 +17,9 @@ export const Route = createFileRoute("/about")({
           "Architectural fabrication atelier in Bengaluru. Certified DuPont™ Corian® solid surfaces, 5-axis CNC machining, and bespoke monolithic joinery.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/about" },
     ],
+    links: [{ rel: "canonical", href: "/about" }],
   }),
   component: AboutPage,
 });

@@ -12,13 +12,16 @@ export const Route = createFileRoute("/applications")({
       },
       { property: "og:title", content: "Applications — acespaces" },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/applications" },
     ],
+    links: [{ rel: "canonical", href: "/applications" }],
   }),
   component: ApplicationsPage,
 });
 
 function ApplicationsPage() {
-  const [first, ...rest] = applications;
+  const first = applications[0]!;
+  const rest = applications.slice(1);
 
   return (
     <>

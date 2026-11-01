@@ -7,7 +7,7 @@ export const Route = createFileRoute("/journal/$slug")({
     if (!post) throw notFound();
     return { post };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       {
         title: loaderData
@@ -25,7 +25,9 @@ export const Route = createFileRoute("/journal/$slug")({
         content: loaderData ? `${loaderData.post.title} | acespaces` : "Journal Essay | acespaces",
       },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: `/journal/${params.slug}` },
     ],
+    links: [{ rel: "canonical", href: `/journal/${params.slug}` }],
   }),
   component: JournalArticlePage,
 });
@@ -34,8 +36,8 @@ function JournalArticlePage() {
   const { post } = Route.useLoaderData();
 
   const currentIndex = posts.findIndex((p) => p.slug === post.slug);
-  const nextPost = posts[(currentIndex + 1) % posts.length];
-  const prevPost = posts[(currentIndex - 1 + posts.length) % posts.length];
+  const nextPost = posts[(currentIndex + 1) % posts.length]!;
+  const prevPost = posts[(currentIndex - 1 + posts.length) % posts.length]!;
 
   return (
     <>

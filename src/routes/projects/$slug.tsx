@@ -7,7 +7,7 @@ export const Route = createFileRoute("/projects/$slug")({
     if (!project) throw notFound();
     return { project };
   },
-  head: ({ loaderData }) => ({
+  head: ({ loaderData, params }) => ({
     meta: [
       {
         title: loaderData
@@ -25,7 +25,9 @@ export const Route = createFileRoute("/projects/$slug")({
         content: loaderData ? `${loaderData.project.title} | acespaces` : "Case Study | acespaces",
       },
       { property: "og:type", content: "article" },
+      { property: "og:url", content: `/projects/${params.slug}` },
     ],
+    links: [{ rel: "canonical", href: `/projects/${params.slug}` }],
   }),
   component: ProjectDetailPage,
 });
@@ -34,8 +36,8 @@ function ProjectDetailPage() {
   const { project } = Route.useLoaderData();
 
   const currentIndex = projects.findIndex((p) => p.slug === project.slug);
-  const nextProject = projects[(currentIndex + 1) % projects.length];
-  const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length];
+  const nextProject = projects[(currentIndex + 1) % projects.length]!;
+  const prevProject = projects[(currentIndex - 1 + projects.length) % projects.length]!;
 
   return (
     <>

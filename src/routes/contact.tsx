@@ -17,7 +17,9 @@ export const Route = createFileRoute("/contact")({
           "Connect with acespaces in Bengaluru. Physical sample dispatch in 72 hours, 48-hour drawing reviews, and architectural consultations.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "/contact" },
     ],
+    links: [{ rel: "canonical", href: "/contact" }],
   }),
   component: ContactPage,
 });
